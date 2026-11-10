@@ -14,7 +14,6 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-      - uses: android-actions/setup-android@v3
       - uses: gradle/actions/setup-gradle@v4
       - run: ./gradlew --no-daemon assembleRelease lintRelease
       - uses: actions/upload-artifact@v4
