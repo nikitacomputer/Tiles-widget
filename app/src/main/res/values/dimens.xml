@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Thickness of the outer outline and the lines between tiles.
+         Literal device pixels as requested; change to e.g. 2dp for a
+         line that scales with screen density. -->
+    <dimen name="tile_gap">2px</dimen>
+</resources>

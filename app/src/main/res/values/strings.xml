@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tiles Widget</string>
+    <string name="widget_description">5×3 grid of app tiles</string>
+    <string name="mapping_title">Tile mapping</string>
+    <string name="mapping_header">Tap a tile to choose which app it opens. Tiles use a built-in default when the app is installed.</string>
+    <string name="not_mapped">Not mapped — tap to choose an app</string>
+    <string name="default_suffix">default</string>
+    <string name="custom_suffix">custom</string>
+    <string name="choose_app">Open which app?</string>
+    <string name="reset_default">Reset to default</string>
+    <string name="tile_needs_mapping">Choose an app for the %1$s tile</string>
+    <string name="app_missing">Could not open the app for this tile</string>
+</resources>
