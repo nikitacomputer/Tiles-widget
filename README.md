@@ -7,7 +7,7 @@ them, just a thin outline around the widget and between tiles (1dp black by defa
 
 | Row | Tiles |
 |---|---|
-| 1 | YouTube · Samsung Internet · Notion · **K (unmapped)** · Google Translate |
+| 1 | YouTube · Samsung Internet · Notion · K-Bid · Google Translate |
 | 2 | Google Sheets · Gmail · Gemini · Clock · Claude |
 | 3 | Calculator · Android Auto · Play Store · Gallery · NYT Games |
 

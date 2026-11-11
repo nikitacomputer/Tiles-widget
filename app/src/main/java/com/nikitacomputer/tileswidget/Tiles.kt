@@ -17,6 +17,8 @@ data class Tile(
     val icon: Int, // drawable resource
     val candidates: List<String>,
     val fallback: (() -> Intent)? = null,
+    /** App names to look for when the package name isn't known (case/punctuation-insensitive). */
+    val labelHints: List<String> = emptyList(),
 )
 
 /** Tiles in row-major order: 5 columns × 3 rows. */
@@ -29,9 +31,10 @@ val TILES: List<Tile> = listOf(
         fallback = { selector(Intent.CATEGORY_APP_BROWSER) }),
     Tile("notion", "Notion", R.drawable.tile_notion,
         listOf("notion.id")),
-    // Unidentified "K" app — not mapped by default; tapping it opens the picker.
-    Tile("k_app", "K app", R.drawable.tile_k_app,
-        emptyList()),
+    // K-Bid: package name unconfirmed, so it is matched by app name as well.
+    Tile("k_bid", "K-Bid", R.drawable.tile_k_app,
+        listOf("com.kbid.app", "com.kbid.android", "com.kbid"),
+        labelHints = listOf("K-Bid", "KBid")),
     Tile("translate", "Google Translate", R.drawable.tile_translate,
         listOf("com.google.android.apps.translate")),
     // Row 2
@@ -108,7 +111,31 @@ fun resolveTarget(context: Context, tile: Tile): Target? {
         return Target.Default(intent, label)
     }
 
+    findByLabel(context, tile.labelHints)?.let { return it }
+
     return tile.fallback?.invoke()?.let { Target.Fallback(it) }
+}
+
+private fun normalize(label: CharSequence) =
+    label.toString().lowercase().filter { it.isLetterOrDigit() }
+
+/** Finds a launcher app whose name starts with one of [hints]. */
+private fun findByLabel(context: Context, hints: List<String>): Target.Default? {
+    if (hints.isEmpty()) return null
+    val wanted = hints.map(::normalize)
+    val pm = context.packageManager
+    val query = Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER)
+    for (info in pm.queryIntentActivities(query, 0)) {
+        val label = info.loadLabel(pm)
+        val name = normalize(label)
+        if (wanted.any { name.startsWith(it) }) {
+            val intent = Intent(Intent.ACTION_MAIN)
+                .addCategory(Intent.CATEGORY_LAUNCHER)
+                .setComponent(ComponentName(info.activityInfo.packageName, info.activityInfo.name))
+            return Target.Default(intent, label)
+        }
+    }
+    return null
 }
 
 /** Starts [intent]; returns false if no activity could handle it. */
