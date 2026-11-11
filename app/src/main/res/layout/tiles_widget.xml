@@ -196,7 +196,7 @@
                 android:background="@color/default_tile_background"
                 android:importantForAccessibility="yes"
                 android:scaleType="fitCenter"
-                android:src="@drawable/tile_calculator" />
+                android:src="@drawable/tile_github" />
             <FrameLayout
                 android:id="@+id/vline_8"
                 android:layout_width="wrap_content"

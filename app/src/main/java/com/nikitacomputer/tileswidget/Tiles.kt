@@ -47,9 +47,8 @@ val TILES: List<Tile> = listOf(
     Tile("claude", "Claude", R.drawable.tile_claude,
         listOf("com.anthropic.claude")),
     // Row 3
-    Tile("calculator", "Calculator", R.drawable.tile_calculator,
-        listOf("com.sec.android.app.popupcalculator", "com.google.android.calculator"),
-        fallback = { selector(Intent.CATEGORY_APP_CALCULATOR) }),
+    Tile("github", "GitHub", R.drawable.tile_github,
+        listOf("com.github.android")),
     Tile("android_auto", "Android Auto", R.drawable.tile_android_auto,
         listOf("com.google.android.projection.gearhead")),
     Tile("play_store", "Play Store", R.drawable.tile_play_store,

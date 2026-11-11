@@ -9,7 +9,7 @@ them, just a thin outline around the widget and between tiles (1dp black by defa
 |---|---|
 | 1 | YouTube · Samsung Internet · Notion · **K (unmapped)** · Google Translate |
 | 2 | Google Sheets · Gmail · Gemini · Clock · Claude |
-| 3 | Calculator · Android Auto · Play Store · Gallery · NYT Games |
+| 3 | GitHub · Android Auto · Play Store · Gallery · NYT Games |
 
 ## Install
 
@@ -22,7 +22,7 @@ Or build locally: `./gradlew assembleRelease` (needs the Android SDK).
 ## How tiles launch apps
 
 Each tile knows a list of package names (e.g. Clock tries Samsung Clock, then
-Google Clock) and launches the first one installed. Clock, Calculator, Gallery
+Google Clock) and launches the first one installed. Clock, Gallery
 and Samsung Internet also fall back to the system's default app of that kind.
 
 If a tile has nothing to open, tapping it opens a picker for that tile.
