@@ -1,7 +1,7 @@
 # Tiles Widget
 
 An Android home-screen widget: a 5×3 grid of app tiles with no spacing between
-them, just a 2px black outline around the widget and between tiles.
+them, just a thin outline around the widget and between tiles (1dp black by default).
 
 ![preview](app/src/main/res/drawable-nodpi/widget_preview.png)
 
@@ -29,13 +29,12 @@ If a tile has nothing to open, tapping it opens a picker for that tile.
 
 ## Remapping tiles
 
-Open the **Tile mapping** app (or reconfigure the widget: long-press it →
+Open the **Tiles Widget settings** app (or reconfigure the widget: long-press it →
 settings on Android 12+). Tap any tile to point it at any installed app, or
 reset it to its default. Mappings are resolved at tap time, so they apply
 immediately.
 
 ## Tweaks
 
-- Line thickness: `app/src/main/res/values/dimens.xml` (`tile_gap`, `2px`).
-  Use `2dp` for a line that scales with screen density.
+- Appearance (tile colour + opacity, outline width 1–5dp, black/white outline, corner radius 0–30dp) is set in the app's settings screen.
 - Default apps per tile: `TILES` in `app/src/main/java/.../Tiles.kt`.

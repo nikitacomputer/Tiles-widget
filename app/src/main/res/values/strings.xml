@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Tiles Widget</string>
     <string name="widget_description">5×3 grid of app tiles</string>
-    <string name="mapping_title">Tile mapping</string>
+    <string name="mapping_title">Tiles Widget settings</string>
     <string name="mapping_header">Tap a tile to choose which app it opens. Tiles use a built-in default when the app is installed.</string>
     <string name="not_mapped">Not mapped — tap to choose an app</string>
     <string name="default_suffix">default</string>
@@ -11,4 +11,17 @@
     <string name="reset_default">Reset to default</string>
     <string name="tile_needs_mapping">Choose an app for the %1$s tile</string>
     <string name="app_missing">Could not open the app for this tile</string>
+    <string name="appearance">Appearance</string>
+    <string name="tiles">Tiles</string>
+    <string name="background_color">Tile background colour</string>
+    <string name="hex_label">Hex</string>
+    <string name="opacity_label">Background opacity: %1$d%%</string>
+    <string name="outline_width_label">Outline width: %1$d dp</string>
+    <string name="outline_color">Outline colour</string>
+    <string name="black">Black</string>
+    <string name="white">White</string>
+    <string name="corner_radius_label">Corner radius: %1$d dp</string>
+    <string name="radius_unsupported">Rounded corners need Android 12 or newer.</string>
+    <string name="reset_style">Reset appearance</string>
+    <string name="system_default_app">System default app</string>
 </resources>

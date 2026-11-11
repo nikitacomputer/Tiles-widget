@@ -1,178 +1,271 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 5x3 grid. The black root background shows through the padding and the
-     gaps between tiles, forming the outline and the separators. -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- 5x3 grid, generated. Layers:
+     - widget_root: clipped to the corner radius (Android 12+).
+     - grid: tiles plus the inner separators (2 hline_*, 12 vline_*), which are
+       empty FrameLayouts sized by their padding so width/colour can change at
+       runtime. Its padding equals the outline width.
+     - outline_ring: outer outline drawn on top, rounded to match the corners.
+     Tiles never sit on top of an outline-coloured background, so translucent
+     tiles show the wallpaper. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/widget_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grid_line"
-    android:orientation="vertical"
-    android:padding="@dimen/tile_gap">
+    android:clipToOutline="true"
+    tools:targetApi="s">
+
     <LinearLayout
+        android:id="@+id/grid"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/tile_0"
-            android:src="@drawable/tile_youtube"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/default_outline_width">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/tile_background"
-            android:scaleType="fitCenter"
-            android:importantForAccessibility="yes" />
-        <ImageView
-            android:id="@+id/tile_1"
-            android:src="@drawable/tile_samsung_internet"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/tile_0"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/default_tile_background"
+                android:importantForAccessibility="yes"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tile_youtube" />
+            <FrameLayout
+                android:id="@+id/vline_0"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/default_outline"
+                android:paddingStart="@dimen/default_outline_width" />
+            <ImageView
+                android:id="@+id/tile_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/default_tile_background"
+                android:importantForAccessibility="yes"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tile_samsung_internet" />
+            <FrameLayout
+                android:id="@+id/vline_1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/default_outline"
+                android:paddingStart="@dimen/default_outline_width" />
+            <ImageView
+                android:id="@+id/tile_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/default_tile_background"
+                android:importantForAccessibility="yes"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tile_notion" />
+            <FrameLayout
+                android:id="@+id/vline_2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/default_outline"
+                android:paddingStart="@dimen/default_outline_width" />
+            <ImageView
+                android:id="@+id/tile_3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/default_tile_background"
+                android:importantForAccessibility="yes"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tile_k_app" />
+            <FrameLayout
+                android:id="@+id/vline_3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/default_outline"
+                android:paddingStart="@dimen/default_outline_width" />
+            <ImageView
+                android:id="@+id/tile_4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/default_tile_background"
+                android:importantForAccessibility="yes"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tile_translate" />
+        </LinearLayout>
+        <FrameLayout
+            android:id="@+id/hline_0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/default_outline"
+            android:paddingTop="@dimen/default_outline_width" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginStart="@dimen/tile_gap"
-            android:background="@color/tile_background"
-            android:scaleType="fitCenter"
-            android:importantForAccessibility="yes" />
-        <ImageView
-            android:id="@+id/tile_2"
-            android:src="@drawable/tile_notion"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/tile_5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/default_tile_background"
+                android:importantForAccessibility="yes"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tile_sheets" />
+            <FrameLayout
+                android:id="@+id/vline_4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/default_outline"
+                android:paddingStart="@dimen/default_outline_width" />
+            <ImageView
+                android:id="@+id/tile_6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/default_tile_background"
+                android:importantForAccessibility="yes"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tile_gmail" />
+            <FrameLayout
+                android:id="@+id/vline_5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/default_outline"
+                android:paddingStart="@dimen/default_outline_width" />
+            <ImageView
+                android:id="@+id/tile_7"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/default_tile_background"
+                android:importantForAccessibility="yes"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tile_gemini" />
+            <FrameLayout
+                android:id="@+id/vline_6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/default_outline"
+                android:paddingStart="@dimen/default_outline_width" />
+            <ImageView
+                android:id="@+id/tile_8"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/default_tile_background"
+                android:importantForAccessibility="yes"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tile_clock" />
+            <FrameLayout
+                android:id="@+id/vline_7"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/default_outline"
+                android:paddingStart="@dimen/default_outline_width" />
+            <ImageView
+                android:id="@+id/tile_9"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/default_tile_background"
+                android:importantForAccessibility="yes"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tile_claude" />
+        </LinearLayout>
+        <FrameLayout
+            android:id="@+id/hline_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/default_outline"
+            android:paddingTop="@dimen/default_outline_width" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginStart="@dimen/tile_gap"
-            android:background="@color/tile_background"
-            android:scaleType="fitCenter"
-            android:importantForAccessibility="yes" />
-        <ImageView
-            android:id="@+id/tile_3"
-            android:src="@drawable/tile_k_app"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginStart="@dimen/tile_gap"
-            android:background="@color/tile_background"
-            android:scaleType="fitCenter"
-            android:importantForAccessibility="yes" />
-        <ImageView
-            android:id="@+id/tile_4"
-            android:src="@drawable/tile_translate"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginStart="@dimen/tile_gap"
-            android:background="@color/tile_background"
-            android:scaleType="fitCenter"
-            android:importantForAccessibility="yes" />
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/tile_10"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/default_tile_background"
+                android:importantForAccessibility="yes"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tile_calculator" />
+            <FrameLayout
+                android:id="@+id/vline_8"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/default_outline"
+                android:paddingStart="@dimen/default_outline_width" />
+            <ImageView
+                android:id="@+id/tile_11"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/default_tile_background"
+                android:importantForAccessibility="yes"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tile_android_auto" />
+            <FrameLayout
+                android:id="@+id/vline_9"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/default_outline"
+                android:paddingStart="@dimen/default_outline_width" />
+            <ImageView
+                android:id="@+id/tile_12"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/default_tile_background"
+                android:importantForAccessibility="yes"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tile_play_store" />
+            <FrameLayout
+                android:id="@+id/vline_10"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/default_outline"
+                android:paddingStart="@dimen/default_outline_width" />
+            <ImageView
+                android:id="@+id/tile_13"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/default_tile_background"
+                android:importantForAccessibility="yes"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tile_gallery" />
+            <FrameLayout
+                android:id="@+id/vline_11"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/default_outline"
+                android:paddingStart="@dimen/default_outline_width" />
+            <ImageView
+                android:id="@+id/tile_14"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/default_tile_background"
+                android:importantForAccessibility="yes"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tile_nyt_games" />
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
+
+    <ImageView
+        android:id="@+id/outline_ring"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="@dimen/tile_gap"
-        android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/tile_5"
-            android:src="@drawable/tile_sheets"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/tile_background"
-            android:scaleType="fitCenter"
-            android:importantForAccessibility="yes" />
-        <ImageView
-            android:id="@+id/tile_6"
-            android:src="@drawable/tile_gmail"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginStart="@dimen/tile_gap"
-            android:background="@color/tile_background"
-            android:scaleType="fitCenter"
-            android:importantForAccessibility="yes" />
-        <ImageView
-            android:id="@+id/tile_7"
-            android:src="@drawable/tile_gemini"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginStart="@dimen/tile_gap"
-            android:background="@color/tile_background"
-            android:scaleType="fitCenter"
-            android:importantForAccessibility="yes" />
-        <ImageView
-            android:id="@+id/tile_8"
-            android:src="@drawable/tile_clock"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginStart="@dimen/tile_gap"
-            android:background="@color/tile_background"
-            android:scaleType="fitCenter"
-            android:importantForAccessibility="yes" />
-        <ImageView
-            android:id="@+id/tile_9"
-            android:src="@drawable/tile_claude"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginStart="@dimen/tile_gap"
-            android:background="@color/tile_background"
-            android:scaleType="fitCenter"
-            android:importantForAccessibility="yes" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="@dimen/tile_gap"
-        android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/tile_10"
-            android:src="@drawable/tile_calculator"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/tile_background"
-            android:scaleType="fitCenter"
-            android:importantForAccessibility="yes" />
-        <ImageView
-            android:id="@+id/tile_11"
-            android:src="@drawable/tile_android_auto"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginStart="@dimen/tile_gap"
-            android:background="@color/tile_background"
-            android:scaleType="fitCenter"
-            android:importantForAccessibility="yes" />
-        <ImageView
-            android:id="@+id/tile_12"
-            android:src="@drawable/tile_play_store"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginStart="@dimen/tile_gap"
-            android:background="@color/tile_background"
-            android:scaleType="fitCenter"
-            android:importantForAccessibility="yes" />
-        <ImageView
-            android:id="@+id/tile_13"
-            android:src="@drawable/tile_gallery"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginStart="@dimen/tile_gap"
-            android:background="@color/tile_background"
-            android:scaleType="fitCenter"
-            android:importantForAccessibility="yes" />
-        <ImageView
-            android:id="@+id/tile_14"
-            android:src="@drawable/tile_nyt_games"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginStart="@dimen/tile_gap"
-            android:background="@color/tile_background"
-            android:scaleType="fitCenter"
-            android:importantForAccessibility="yes" />
-    </LinearLayout>
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:importantForAccessibility="no"
+        android:scaleType="fitXY"
+        android:src="@drawable/ring_r0_w1"
+        android:tint="@color/default_outline" />
+</FrameLayout>

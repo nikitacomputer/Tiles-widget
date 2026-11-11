@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Outline + separators between tiles. -->
-    <color name="grid_line">#FF000000</color>
-    <!-- Matches the teal background baked into the icon artwork, so tiles
-         stay seamless when a cell is not perfectly square. -->
-    <color name="tile_background">#FF6ECCC1</color>
+    <!-- Defaults; users can change both in the settings screen. -->
+    <color name="default_outline">#FF000000</color>
+    <color name="default_tile_background">#FF87CAC1</color>
 </resources>
