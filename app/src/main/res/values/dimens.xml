@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Default outline/separator width; adjustable 1–5dp in settings. -->
-    <dimen name="default_outline_width">1dp</dimen>
-</resources>

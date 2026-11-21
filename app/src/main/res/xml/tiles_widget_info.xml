@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Resizable down to 1x1; the tile grid (set in settings) always divides
+     whatever size the widget has. -->
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-    android:configure="com.nikitacomputer.tileswidget.MappingActivity"
+    android:configure="com.nikitacomputer.tileswidget.ConfigActivity"
     android:description="@string/widget_description"
-    android:initialLayout="@layout/tiles_widget"
-    android:minWidth="250dp"
-    android:minHeight="110dp"
-    android:minResizeWidth="180dp"
-    android:minResizeHeight="100dp"
+    android:initialLayout="@layout/widget"
+    android:minWidth="40dp"
+    android:minHeight="40dp"
+    android:minResizeWidth="40dp"
+    android:minResizeHeight="40dp"
     android:previewImage="@drawable/widget_preview"
-    android:previewLayout="@layout/tiles_widget"
     android:resizeMode="horizontal|vertical"
     android:targetCellWidth="5"
     android:targetCellHeight="3"
